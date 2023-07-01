@@ -24,3 +24,6 @@ export const isContactExists = (contacts, { name, number }) =>
       itm.name.toLocaleLowerCase() === name.toLocaleLowerCase() ||
       itm.number === number
   );
+
+export const isContactsEqual = (a, b) =>
+  Object.entries(a).every(([key, value]) => b[key] === value);

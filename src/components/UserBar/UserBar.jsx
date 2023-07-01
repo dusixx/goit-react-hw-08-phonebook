@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { toast } from 'react-toastify';
 import { useAuth } from 'redux/hooks';
 import { ButtonBase } from 'styles/shared';
 import { IconLogout, IconArrowDown } from 'styles/icons';
@@ -7,11 +6,18 @@ import {
   Avatar,
   UserMenu,
   Bar,
-  MenuItem,
+  Logout,
+  MenuHeader,
   Name,
   Email,
-  Logout,
+  Text,
 } from './UserBar.styled';
+
+const LOGOUT_FAILED = 'Logout failed';
+
+//
+// UserBar
+//
 
 export const UserBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -29,9 +35,7 @@ export const UserBar = () => {
   }, []);
 
   const handleLogoutClick = () => {
-    logoutAsync()
-      .then(/* () => toast.success(`See you, ${user.name}`) */)
-      .catch(`Logout failed`);
+    logoutAsync().catch(LOGOUT_FAILED);
   };
 
   if (!user.name) return;
@@ -50,11 +54,16 @@ export const UserBar = () => {
 
       {showMenu && (
         <UserMenu>
-          <MenuItem>{user.name}</MenuItem>
-          <MenuItem>{user.email}</MenuItem>
+          <MenuHeader>
+            <Avatar>{user.name[0]}</Avatar>
+            <Text>
+              <Name>{user.name}</Name>
+              <Email>{user.email}</Email>
+            </Text>
+          </MenuHeader>
 
           <Logout onClick={handleLogoutClick}>
-            <IconLogout size={20} /> Logout
+            <IconLogout size={15} /> Logout
           </Logout>
         </UserMenu>
       )}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Form, FormField, Button, FormTitle } from './LoginForm.styled';
-import { fieldData } from 'fieldData';
+import { fieldData } from 'data/fieldData';
 import { IconMail, IconLock } from 'styles/icons';
 import { useAuth } from 'redux/hooks';
 import { formatName } from 'utils';
@@ -29,6 +29,7 @@ export const LoginForm = ({ signup = false }) => {
     e.preventDefault();
 
     const action = signup ? signupAsync : loginAsync;
+
     const formData = {
       name: formatName(name),
       email: email.trim(),

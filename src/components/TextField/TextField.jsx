@@ -13,7 +13,7 @@ import {
 export const TextField = forwardRef(
   (
     { value, icon: ReactIcon, type, onChange, height, width, ...restProps },
-    ref /* after props */
+    ref /* !! after props */
   ) => {
     return (
       <Field height={height} width={width}>

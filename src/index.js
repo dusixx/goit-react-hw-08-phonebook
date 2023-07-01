@@ -12,16 +12,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <BrowserRouter /* basename="/goit-react-hw-08-phonebook" */>
+        <BrowserRouter basename="/goit-react-hw-08-phonebook">
           <App />
         </BrowserRouter>
       </PersistGate>
     </Provider>
 
     <ToastContainer
-      autoClose={1500}
+      autoClose={1000}
       position="top-center"
-      progressStyle={{ height: '3px' }}
+      progressStyle={{ height: '2px' }}
+      hideProgressBar={true}
     />
   </StrictMode>
 );

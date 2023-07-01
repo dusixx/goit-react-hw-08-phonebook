@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ButtonBase, FlexCentered } from 'styles/shared';
+import { ButtonBase, FlexCentered, TransitionBase } from 'styles/shared';
 
 export const Field = styled.label`
   width: ${({ width }) => width || '100%'};
@@ -32,9 +32,7 @@ export const Input = styled.input`
   border: 1px solid var(--color-border);
   outline: none;
 
-  transition-property: background-color;
-  transition-duration: var(--trans-duration);
-  transition-timing-function: var(--trans-func);
+  ${TransitionBase('box-shadow border-color ackground-colo')};
 
   &::placeholder {
     opacity: 0.5;
@@ -43,6 +41,8 @@ export const Input = styled.input`
 
   &:focus-visible {
     background-color: var(--color-accent-lighter);
+    box-shadow: 0 0 0 0.25rem rgb(var(--color-blue-rgb), 0.2);
+    border-color: rgb(var(--color-blue-rgb), 0.6);
   }
 `;
 

@@ -2,8 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { SharedLayout } from 'components/SharedLayout';
 import { LoaderBar } from 'components/LoaderBar/LoaderBar';
 import { lazyImport } from 'utils';
-import { useAuth } from 'redux/hooks';
-import { useEffect } from 'react';
+import { useAuthRefresh } from 'hooks';
 
 const Home = lazyImport('pages/Home');
 const Register = lazyImport('pages/Register');
@@ -14,9 +13,7 @@ const Contacts = lazyImport('pages/Contacts');
 //
 
 export const App = ({ loader = <LoaderBar /> }) => {
-  const { refresh, token } = useAuth();
-
-  useEffect(() => void refresh(), [refresh]);
+  const { token } = useAuthRefresh();
 
   return (
     <Routes>

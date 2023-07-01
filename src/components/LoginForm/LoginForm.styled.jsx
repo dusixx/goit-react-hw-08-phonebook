@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { TextField } from 'components/TextField';
-import { TransitionBase } from 'styles/shared';
 import { ButtonPrimary } from 'styles/shared';
 
 export const Form = styled.form`
@@ -11,6 +10,12 @@ export const Form = styled.form`
 
   width: 90%;
   margin: 0 auto;
+  padding: 15px 20px;
+
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  overflow: auto;
 
   @media screen and (min-width: 768px) {
     width: 400px;
@@ -24,13 +29,6 @@ export const FormTitle = styled.h2`
 export const FormField = styled(TextField)`
   height: var(--field-height);
   padding-left: 40px;
-
-  ${TransitionBase('box-shadow border-color')};
-
-  &:focus-within {
-    box-shadow: 0 0 0 0.3rem rgb(var(--color-blue-rgb), 0.2);
-    border-color: rgb(var(--color-blue-rgb), 0.7);
-  }
 `;
 
 export const Button = styled(ButtonPrimary)`

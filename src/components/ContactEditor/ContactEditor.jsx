@@ -1,17 +1,23 @@
 import { useState, useRef } from 'react';
 import { TextField } from 'components/TextField';
 import { Form } from './ContactEditor.styled';
-import { fieldData } from 'fieldData';
+import { fieldData } from 'data/fieldData';
 import { useContacts } from 'redux/hooks';
 import { toast } from 'react-toastify';
 import { Block } from 'styles/shared';
-import { formatNumber, formatName, isContactExists } from 'utils';
 import { useEffect } from 'react';
 import { SubmitBtn } from './SubmitBtn';
 
+import {
+  formatNumber,
+  formatName,
+  isContactExists,
+  isContactsEqual,
+} from 'utils';
+
 const ALREADY_EXISTS = `The contact with the same name or number already exists`;
-const ADDED_SUCCESS = `The contact was added successfully`;
-const UPDATED_SUCCESS = `The contact was updated successfully`;
+const ADDED_SUCCESS = `The contact was successfully added `;
+const UPDATED_SUCCESS = `The contact was successfully updated `;
 
 //
 // ContactEditor
@@ -20,6 +26,7 @@ const UPDATED_SUCCESS = `The contact was updated successfully`;
 export const ContactEditor = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [editedData, setEditedData] = useState(null);
   const nameFieldRef = useRef(null);
   const {
     items,
@@ -31,20 +38,27 @@ export const ContactEditor = () => {
   } = useContacts();
 
   useEffect(() => {
-    if (!name && !number) setEditedId(null);
+    if (!name && !number) {
+      setEditedId(null);
+      setEditedData(null);
+    }
   }, [name, number, setEditedId]);
 
   useEffect(() => {
     const found = items.find(itm => itm.id === editedId);
     if (!found) return;
 
+    setEditedData(found);
     setName(found.name);
     setNumber(found.number);
 
     nameFieldRef.current?.focus();
     nameFieldRef.current?.scrollIntoView();
 
-    return () => setEditedId(null);
+    return () => {
+      setEditedId(null);
+      setEditedData(null);
+    };
   }, [editedId, items, setEditedId]);
 
   const resetForm = e => {
@@ -60,6 +74,8 @@ export const ContactEditor = () => {
   };
 
   const editContact = data => {
+    if (isContactsEqual(data, editedData)) return;
+
     editContactAsync({ id: editedId, data })
       .then(() => {
         setEditedId(null);
