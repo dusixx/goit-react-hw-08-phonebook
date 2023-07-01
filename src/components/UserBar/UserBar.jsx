@@ -63,7 +63,7 @@ export const UserBar = () => {
           </MenuHeader>
 
           <Logout onClick={handleLogoutClick}>
-            <IconLogout size={15} /> Logout
+            <IconLogout size={15} /> Sign out
           </Logout>
         </UserMenu>
       )}
