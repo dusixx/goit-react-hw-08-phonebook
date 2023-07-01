@@ -1,4 +1,4 @@
-import { IconPhone, IconUser } from 'styles/icons';
+import { IconPhone, IconUser, IconLock } from 'styles/icons';
 
 export const fieldData = {
   name: {
@@ -10,9 +10,14 @@ export const fieldData = {
   },
 
   number: {
-    title:
-      'The number must be 10 digits long and may contain spaces and hyphens',
+    title: 'Must be 10 digits long and may contain spaces and hyphens',
     pattern: '^([\\s-]*\\d[\\s-]*){10}$',
     icon: IconPhone,
+  },
+
+  password: {
+    title: 'Must be at least 7 characters long',
+    pattern: '^.{7,}$',
+    icon: IconLock,
   },
 };

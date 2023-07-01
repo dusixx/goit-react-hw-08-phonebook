@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, FormField, Button, FormTitle } from './LoginForm.styled';
 import { fieldData } from 'data/fieldData';
-import { IconMail, IconLock } from 'styles/icons';
+import { IconMail } from 'styles/icons';
 import { useAuth } from 'redux/hooks';
 import { formatName } from 'utils';
 import { toast } from 'react-toastify';
@@ -77,10 +77,12 @@ export const LoginForm = ({ signup = false }) => {
         placeholder="password"
         type="password"
         autoComplete="off"
-        icon={IconLock}
+        pattern={fieldData.password.pattern}
+        icon={fieldData.password.icon}
+        title={fieldData.password.title}
         value={password}
         onChange={e => setPassword(e?.target.value ?? '')}
-        minLength={6}
+        minLength={7}
         maxLength={20}
         required
       />
