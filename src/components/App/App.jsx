@@ -4,9 +4,8 @@ import { LoaderBar } from 'components/LoaderBar/LoaderBar';
 import { lazyImport } from 'utils';
 import { useAuthRefresh } from 'hooks';
 
-const Home = lazyImport('pages/Home');
-const Register = lazyImport('pages/Register');
 const Contacts = lazyImport('pages/Contacts');
+const LoginForm = lazyImport('components/LoginForm/LoginForm.jsx');
 
 //
 // App
@@ -20,14 +19,12 @@ export const App = ({ loader = <LoaderBar /> }) => {
       <Route path="/" element={<SharedLayout />}>
         <Route
           index
-          element={
-            token ? <Navigate to="contacts" /> : <Home loader={loader} />
-          }
+          element={token ? <Navigate to="contacts" /> : <LoginForm />}
         />
         <Route
           path="register"
           element={
-            token ? <Navigate to="contacts" /> : <Register loader={loader} />
+            token ? <Navigate to="contacts" /> : <LoginForm signup={true} />
           }
         />
         <Route

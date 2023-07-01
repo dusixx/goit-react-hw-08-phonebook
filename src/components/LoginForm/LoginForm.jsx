@@ -22,7 +22,7 @@ const BTN_CAPTION_LOGIN = 'Log In';
 const BTN_CAPTION_SIGNUP = 'Sign Up';
 const LOGIN_ERR = 'Invalid email or a user with the same email already exists';
 
-export const LoginForm = ({ signup = false }) => {
+const LoginForm = ({ signup = false }) => {
   const { loginAsync, signupAsync, pendingAction } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -119,3 +119,5 @@ export const LoginForm = ({ signup = false }) => {
     </Form>
   );
 };
+
+export default LoginForm;

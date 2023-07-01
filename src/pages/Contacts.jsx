@@ -10,7 +10,7 @@ const NO_CONTACTS = 'There are no contacts in the phone book yet';
 const Error = ({ message }) => void toast.error(message);
 
 //
-// App
+// Contacts
 //
 
 const Contacts = () => {
