@@ -6,9 +6,9 @@ import { cap } from 'utils';
 // Controls
 //
 
-export const Controls = ({ items, targetId, height, onClick }) => {
+export const Controls = ({ items, targetId, height, onClick, style }) => {
   return (
-    <ControlsList height={height}>
+    <ControlsList height={height} style={style}>
       {Object.entries(items).map(([name, Icon]) => {
         return (
           <Control key={name}>

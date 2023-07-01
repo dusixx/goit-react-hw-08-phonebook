@@ -21,7 +21,7 @@ const ACTION_NOT_SUPPORTED = 'Action not supported';
 
 export const ContactList = ({ controlsHeight, rowHeight }) => {
   const [clickedId, setClickedId] = useState(null);
-  const { filtered, deleteContactAsync, pendingAction, setEditedId } =
+  const { filtered, deleteContactAsync, pendingAction, setEditedId, editedId } =
     useContacts();
 
   const handleControlClick = (id, name) => {
@@ -65,6 +65,11 @@ export const ContactList = ({ controlsHeight, rowHeight }) => {
                     height={controlsHeight}
                     targetId={id}
                     onClick={handleControlClick}
+                    style={
+                      id === editedId
+                        ? { pointerEvents: 'none', opacity: 0.7 }
+                        : null
+                    }
                   />
                 )}
               </Column>
