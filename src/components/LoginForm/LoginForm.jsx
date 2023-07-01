@@ -54,6 +54,15 @@ export const LoginForm = ({ signup = false }) => {
       .catch(() => toast.error(LOGIN_ERR));
   };
 
+  // в режиме login не показываем лишнего
+  const passwordProps = signup
+    ? {
+        minLength: 7,
+        maxLength: 20,
+        pattern: fieldData.password.pattern,
+      }
+    : {};
+
   return (
     <Form onSubmit={handleSubmit}>
       <FormTitle>{signup ? FORM_TITLE_SIGNUP : FORM_TITLE_LOGIN}</FormTitle>
@@ -85,22 +94,18 @@ export const LoginForm = ({ signup = false }) => {
 
       <PasswordField>
         <FormField
+          {...passwordProps}
           placeholder="password"
           type={showPassword ? 'text' : 'password'}
           autoComplete="off"
-          pattern={fieldData.password.pattern}
           icon={fieldData.password.icon}
           title={fieldData.password.title}
           value={password}
           onChange={e => setPassword(e?.target.value ?? '')}
-          minLength={7}
-          maxLength={20}
           required
         />
 
-        <ShowPassword
-        // style={password ? null : { opacity: 0.5, pointerEvents: 'none' }}
-        >
+        <ShowPassword>
           {showPassword ? <IoMdEye size={15} /> : <IoMdEyeOff size={15} />}
           <input type="checkbox" onClick={() => setShowPassword(cur => !cur)} />
           <span>{showPassword ? 'Hide' : 'Show'}</span> password
