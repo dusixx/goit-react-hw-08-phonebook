@@ -38,6 +38,13 @@ export const ContactEditor = () => {
   } = useContacts();
 
   useEffect(() => {
+    return () => {
+      setEditedId(null);
+      setEditedData(null);
+    };
+  }, [setEditedId]);
+
+  useEffect(() => {
     if (!name && !number) {
       setEditedId(null);
       setEditedData(null);
@@ -54,11 +61,6 @@ export const ContactEditor = () => {
 
     nameFieldRef.current?.focus();
     nameFieldRef.current?.scrollIntoView();
-
-    return () => {
-      setEditedId(null);
-      setEditedData(null);
-    };
   }, [editedId, items, setEditedId]);
 
   const resetForm = e => {

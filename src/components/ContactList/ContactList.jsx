@@ -11,9 +11,9 @@ import { SpinnerLines } from 'components/SpinnerLines/SpinnerLines';
 
 const ACTION_NOT_SUPPORTED = 'Action not supported';
 
-const deletedItemStyle = {
-  backgroundColor: 'rgb(255 0 0 / 0.1)',
-};
+// const deletedItemStyle = {
+//   backgroundColor: 'rgb(255 0 0 / 0.1)',
+// };
 
 //
 // ContactList
@@ -49,7 +49,7 @@ export const ContactList = ({ controlsHeight, rowHeight }) => {
             <Item
               key={id}
               height={rowHeight}
-              style={isDeleted ? deletedItemStyle : null}
+              // style={isDeleted ? deletedItemStyle : null}
             >
               <Column>{name}</Column>
               <Column>{number}</Column>

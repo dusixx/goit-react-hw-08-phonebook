@@ -1,4 +1,4 @@
-import { IconPhone, IconUser, IconMail } from 'styles/icons';
+import { IconPhone, IconUser } from 'styles/icons';
 
 export const fieldData = {
   name: {
