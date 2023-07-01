@@ -35,3 +35,26 @@ export const Button = styled(ButtonPrimary)`
   min-width: 100px;
   height: 35px;
 `;
+
+export const PasswordField = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+`;
+
+export const ShowPassword = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  font-size: 12px;
+  line-height: 0;
+  padding-left: 10px;
+  cursor: pointer;
+  user-select: none;
+
+  & input {
+    appearance: unset;
+  }
+`;

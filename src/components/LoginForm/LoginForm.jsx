@@ -1,11 +1,20 @@
 import { useState } from 'react';
-import { Form, FormField, Button, FormTitle } from './LoginForm.styled';
 import { fieldData } from 'data/fieldData';
 import { IconMail } from 'styles/icons';
 import { useAuth } from 'redux/hooks';
 import { formatName } from 'utils';
 import { toast } from 'react-toastify';
 import { SpinnerLines } from 'components/SpinnerLines/SpinnerLines';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
+
+import {
+  Form,
+  FormField,
+  Button,
+  FormTitle,
+  ShowPassword,
+  PasswordField,
+} from './LoginForm.styled';
 
 const FORM_TITLE_LOGIN = 'Login to your account';
 const FORM_TITLE_SIGNUP = 'Create your account';
@@ -18,6 +27,7 @@ export const LoginForm = ({ signup = false }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const resetForm = e => {
     setName('');
@@ -73,19 +83,29 @@ export const LoginForm = ({ signup = false }) => {
         required
       />
 
-      <FormField
-        placeholder="password"
-        type="password"
-        autoComplete="off"
-        pattern={fieldData.password.pattern}
-        icon={fieldData.password.icon}
-        title={fieldData.password.title}
-        value={password}
-        onChange={e => setPassword(e?.target.value ?? '')}
-        minLength={7}
-        maxLength={20}
-        required
-      />
+      <PasswordField>
+        <FormField
+          placeholder="password"
+          type={showPassword ? 'text' : 'password'}
+          autoComplete="off"
+          pattern={fieldData.password.pattern}
+          icon={fieldData.password.icon}
+          title={fieldData.password.title}
+          value={password}
+          onChange={e => setPassword(e?.target.value ?? '')}
+          minLength={7}
+          maxLength={20}
+          required
+        />
+
+        <ShowPassword
+        // style={password ? null : { opacity: 0.5, pointerEvents: 'none' }}
+        >
+          {showPassword ? <IoMdEye size={15} /> : <IoMdEyeOff size={15} />}
+          <input type="checkbox" onClick={() => setShowPassword(cur => !cur)} />
+          <span>{showPassword ? 'Hide' : 'Show'}</span> password
+        </ShowPassword>
+      </PasswordField>
 
       <Button>
         {pendingAction && <SpinnerLines width={20} strokeColor="white" />}
