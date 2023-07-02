@@ -5,9 +5,10 @@ export const Checkbox = styled.label`
   align-items: center;
   gap: 2px;
 
+  padding-left: 10px;
   font-size: 12px;
   line-height: 0;
-  padding-left: 10px;
+
   cursor: pointer;
   user-select: none;
 

@@ -20,7 +20,7 @@ const FORM_TITLE_SIGNUP = 'Create your account';
 const BTN_CAPTION_LOGIN = 'Log In';
 const BTN_CAPTION_SIGNUP = 'Sign Up';
 const SIGNUP_FAILED =
-  'Invalid email or a user with the same email already exists';
+  'Invalid email or a user with the same one already exists';
 const LOGIN_FAILED = 'Invalid email or password';
 
 //
