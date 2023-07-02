@@ -19,7 +19,13 @@ const FORM_TITLE_LOGIN = 'Login to your account';
 const FORM_TITLE_SIGNUP = 'Create your account';
 const BTN_CAPTION_LOGIN = 'Log In';
 const BTN_CAPTION_SIGNUP = 'Sign Up';
-const LOGIN_ERR = 'Invalid email or a user with the same email already exists';
+const SIGNUP_FAILED =
+  'Invalid email or a user with the same email already exists';
+const LOGIN_FAILED = 'Invalid email or password';
+
+//
+// LoginForm
+//
 
 const LoginForm = ({ signup = false }) => {
   const { loginAsync, signupAsync, pendingAction } = useAuth();
@@ -50,7 +56,7 @@ const LoginForm = ({ signup = false }) => {
         toast.success(`Welcome, ${user.name}`);
         resetForm();
       })
-      .catch(() => toast.error(LOGIN_ERR));
+      .catch(() => toast.error(signup ? SIGNUP_FAILED : LOGIN_FAILED));
   };
 
   // в режиме login не показываем лишнего
