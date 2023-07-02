@@ -3,6 +3,7 @@ import { SharedLayout } from 'components/SharedLayout';
 import { LoaderBar } from 'components/etc/LoaderBar/LoaderBar';
 import { lazyImport } from 'utils';
 import { useAuthRefresh } from 'hooks';
+import { AuthContent } from './AuthContent';
 
 const Contacts = lazyImport('pages/Contacts');
 const LoginForm = lazyImport('components/LoginForm/LoginForm.jsx');
@@ -19,17 +20,23 @@ export const App = ({ loader = <LoaderBar /> }) => {
       <Route path="/" element={<SharedLayout />}>
         <Route
           index
-          element={token ? <Navigate to="contacts" /> : <LoginForm />}
+          element={
+            <AuthContent def={<LoginForm />} auth="contacts" token={token} />
+          }
         />
         <Route
           path="register"
           element={
-            token ? <Navigate to="contacts" /> : <LoginForm signup={true} />
+            <AuthContent
+              def={<LoginForm signup={true} />}
+              auth="contacts"
+              token={token}
+            />
           }
         />
         <Route
           path="contacts"
-          element={token ? <Contacts /> : <Navigate to="/" />}
+          element={<AuthContent def="/" auth={<Contacts />} token={token} />}
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>

@@ -12,6 +12,8 @@ export const Avatar = styled.div`
   height: 40px;
 
   font-size: 24px;
+  font-family: Verdana;
+  line-height: 0;
   color: white;
   text-transform: uppercase;
 

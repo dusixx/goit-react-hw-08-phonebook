@@ -3,6 +3,7 @@ import * as thunk from './authThunks';
 
 const initialState = {
   user: { name: null, email: null },
+  // в тч. вместо isLoggedIn
   token: null,
   pendingAction: null,
   error: null,
@@ -45,7 +46,7 @@ const authSlice = createSlice({
       .addCase(thunk.logout.fulfilled, logoutFulfilled)
 
       .addMatcher(
-        // !! сюда заходят все типы экшенов в т.ч. для контактов
+        // !! сюда заходят все типы экшенов в тч. для контактов
         // Отбираем только auth/../..
         ({ type }) => type.startsWith('auth/') && type.endsWith('/fulfilled'),
         authFulfilled

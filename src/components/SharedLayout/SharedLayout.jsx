@@ -7,7 +7,6 @@ import { Main, MainContainer } from './SharedLayout.styled';
 export const SharedLayout = () => (
   <>
     <Header />
-
     <Main>
       <section>
         <MainContainer>
