@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { SharedLayout } from 'components/SharedLayout';
-import { LoaderBar } from 'components/etc/LoaderBar/LoaderBar';
 import { lazyImport } from 'utils';
 import { useAuthRefresh } from 'hooks';
 import { AuthContent } from './AuthContent';
@@ -12,7 +11,7 @@ const LoginForm = lazyImport('components/LoginForm/LoginForm.jsx');
 // App
 //
 
-export const App = ({ loader = <LoaderBar /> }) => {
+export const App = () => {
   const { token } = useAuthRefresh();
 
   return (
@@ -36,7 +35,7 @@ export const App = ({ loader = <LoaderBar /> }) => {
         />
         <Route
           path="contacts"
-          element={<AuthContent def="/" auth={<Contacts />} token={token} />}
+          element={<AuthContent auth={<Contacts />} token={token} />}
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>

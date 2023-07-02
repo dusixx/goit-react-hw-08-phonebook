@@ -34,7 +34,6 @@ const Contacts = () => {
       {/* 
         Пока идет загрузка списка для текущего пользователя - 
         НЕ показываем список предыдущего (если он был). 
-        Покаызваем спиннер пока идет fetchAll с бекенда
       */}
       {/fetchAll/i.test(pendingAction) ? <SpinnerLines /> : contactsList}
     </Container>
