@@ -33,7 +33,7 @@ export const rejected = (state, { payload: error }) => {
 };
 
 //
-// contactsSlice
+// authSlice
 //
 
 const authSlice = createSlice({
@@ -46,7 +46,7 @@ const authSlice = createSlice({
 
       .addMatcher(
         // !! сюда заходят все типы экшенов в т.ч. для контактов
-        // Отбираем только auth/...
+        // Отбираем только auth/../..
         ({ type }) => type.startsWith('auth/') && type.endsWith('/fulfilled'),
         authFulfilled
       )

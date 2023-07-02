@@ -76,11 +76,12 @@ export const ContactEditor = () => {
   };
 
   const editContact = data => {
-    if (isContactsEqual(data, editedData)) return;
+    if (isContactsEqual(data, editedData)) return resetForm();
 
     editContactAsync({ id: editedId, data })
       .then(() => {
         setEditedId(null);
+        setEditedData(null);
         resetForm();
         toast.success(UPDATED_SUCCESS);
       })

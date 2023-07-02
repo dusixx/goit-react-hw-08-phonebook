@@ -6,7 +6,7 @@ import { Filter } from 'components/Filter';
 import { SpinnerLines } from 'components/SpinnerLines/SpinnerLines';
 import { useFetchedContacts } from 'hooks/useFetchedContacts';
 
-const NO_CONTACTS = 'There are no contacts in the phone book yet';
+const NO_CONTACTS = 'You have not added any contacts yet';
 const Error = ({ message }) => void toast.error(message);
 
 //
@@ -16,21 +16,27 @@ const Error = ({ message }) => void toast.error(message);
 const Contacts = () => {
   const { items, pendingAction, error } = useFetchedContacts();
 
+  const contactsList =
+    items.length > 0 ? (
+      <>
+        <Filter />
+        <ContactList rowHeight={40} controlsHeight="60%" />
+      </>
+    ) : (
+      NO_CONTACTS
+    );
+
   return (
     <Container>
       <Error message={error} />
       <Title>Your contacts</Title>
       <ContactEditor />
-
-      {items.length > 0 && (
-        <>
-          <Filter />
-          <ContactList rowHeight={40} controlsHeight="60%" />
-        </>
-      )}
-
-      {items.length === 0 &&
-        (/fetchAll/i.test(pendingAction) ? <SpinnerLines /> : NO_CONTACTS)}
+      {/* 
+        Пока идет загрузка списка дял текущего пользователя - 
+        НЕ показываем список предыдущего, если он был. Покаызваем спиннер
+        для экшена загрузки контактов с бекенда (fetchAll)
+      */}
+      {/fetchAll/i.test(pendingAction) ? <SpinnerLines /> : contactsList}
     </Container>
   );
 };
