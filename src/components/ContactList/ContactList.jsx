@@ -7,7 +7,7 @@ import { Controls } from './Controls/Controls';
 import { controlsData } from './controlsData';
 import { List, Item, Column } from './ContactList.styled';
 import { Processing } from './ContactList.styled';
-import { SpinnerLines } from 'components/SpinnerLines/SpinnerLines';
+import { SpinnerLines } from 'components/etc/SpinnerLines/SpinnerLines';
 
 const ACTION_NOT_SUPPORTED = 'Action not supported';
 

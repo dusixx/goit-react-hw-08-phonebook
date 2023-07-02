@@ -4,15 +4,14 @@ import { IconMail } from 'styles/icons';
 import { useAuth } from 'redux/hooks';
 import { formatName } from 'utils';
 import { toast } from 'react-toastify';
-import { SpinnerLines } from 'components/SpinnerLines/SpinnerLines';
-import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
+import { SpinnerLines } from 'components/etc/SpinnerLines/SpinnerLines';
+import { ShowPassword } from './ShowPassword/ShowPassword';
 
 import {
   Form,
   FormField,
   Button,
   FormTitle,
-  ShowPassword,
   PasswordField,
 } from './LoginForm.styled';
 
@@ -105,11 +104,10 @@ const LoginForm = ({ signup = false }) => {
           required
         />
 
-        <ShowPassword>
-          {showPassword ? <IoMdEye size={15} /> : <IoMdEyeOff size={15} />}
-          <input type="checkbox" onClick={() => setShowPassword(cur => !cur)} />
-          <span>{showPassword ? 'Hide' : 'Show'}</span> password
-        </ShowPassword>
+        <ShowPassword
+          onClick={() => setShowPassword(cur => !cur)}
+          show={showPassword}
+        />
       </PasswordField>
 
       <Button>

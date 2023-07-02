@@ -12,7 +12,7 @@ import {
 
 export const TextField = forwardRef(
   (
-    { value, icon: ReactIcon, type, onChange, height, width, ...restProps },
+    { value, icon: Icon, type, onChange, height, width, ...restProps },
     ref /* !! after props */
   ) => {
     return (
@@ -26,12 +26,13 @@ export const TextField = forwardRef(
             {...restProps}
           />
 
-          {ReactIcon && (
+          {Icon && (
             <IconWrapper>
-              {typeof ReactIcon === 'function' ? (
-                <ReactIcon size="100%" />
+              {typeof Icon === 'function' ? (
+                <Icon size="100%" />
               ) : (
-                ReactIcon
+                // jsx element (ex. icon={<SomeIcon size={10} />})
+                Icon
               )}
             </IconWrapper>
           )}

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from './Header/Header';
-import { LoaderBar } from 'components/LoaderBar/LoaderBar';
+import { LoaderBar } from 'components/etc/LoaderBar/LoaderBar';
 import { Main, MainContainer } from './SharedLayout.styled';
 
 export const SharedLayout = () => (

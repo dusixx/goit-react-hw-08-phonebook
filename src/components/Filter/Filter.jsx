@@ -1,5 +1,5 @@
 import { IconFilter } from 'styles/icons';
-import { TextField } from 'components/TextField';
+import { TextField } from 'components/etc/TextField';
 import { useFilter } from 'redux/hooks';
 import { Block } from 'styles/shared';
 

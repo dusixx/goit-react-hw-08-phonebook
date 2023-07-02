@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { SharedLayout } from 'components/SharedLayout';
-import { LoaderBar } from 'components/LoaderBar/LoaderBar';
+import { LoaderBar } from 'components/etc/LoaderBar/LoaderBar';
 import { lazyImport } from 'utils';
 import { useAuthRefresh } from 'hooks';
 

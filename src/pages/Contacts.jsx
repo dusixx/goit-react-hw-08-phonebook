@@ -3,7 +3,7 @@ import { Container, Title } from './Contacts.styled';
 import { ContactEditor } from 'components/ContactEditor';
 import { ContactList } from 'components/ContactList';
 import { Filter } from 'components/Filter';
-import { SpinnerLines } from 'components/SpinnerLines/SpinnerLines';
+import { SpinnerLines } from 'components/etc/SpinnerLines/SpinnerLines';
 import { useFetchedContacts } from 'hooks/useFetchedContacts';
 
 const NO_CONTACTS = 'You have not added any contacts yet';

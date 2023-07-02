@@ -1,6 +1,6 @@
 import { bool } from 'prop-types';
 import { Button } from './ContactEditor.styled';
-import { SpinnerLines } from 'components/SpinnerLines/SpinnerLines';
+import { SpinnerLines } from 'components/etc/SpinnerLines/SpinnerLines';
 import { IconUserPlus } from 'styles/icons';
 
 export const SubmitBtn = ({ loading = false, adding = true }) => {

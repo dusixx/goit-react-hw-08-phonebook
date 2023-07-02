@@ -11,6 +11,7 @@ import { VscClose } from 'react-icons/vsc';
 import { RiContactsBook2Fill, RiEmotionSadLine } from 'react-icons/ri';
 import { TbFilter } from 'react-icons/tb';
 import { AiOutlineMail, AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 export const IconSortAz = CgSortAz;
 export const IconSortZa = CgSortZa;
@@ -30,3 +31,5 @@ export const IconMail = AiOutlineMail;
 export const IconLock = AiOutlineLock;
 export const IconLogout = MdOutlineLogout;
 export const IconArrowDown = MdOutlineArrowDropDown;
+export const IconEye = IoMdEye;
+export const IconEyeOff = IoMdEyeOff;

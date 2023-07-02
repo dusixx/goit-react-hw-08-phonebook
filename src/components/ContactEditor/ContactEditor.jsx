@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { TextField } from 'components/TextField';
+import { TextField } from 'components/etc/TextField';
 import { Form } from './ContactEditor.styled';
 import { fieldData } from 'data/fieldData';
 import { useContacts } from 'redux/hooks';

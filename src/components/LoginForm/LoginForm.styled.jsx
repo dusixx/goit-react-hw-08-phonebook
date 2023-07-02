@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { TextField } from 'components/TextField';
+import { TextField } from 'components/etc/TextField';
 import { ButtonPrimary } from 'styles/shared';
 
 export const Form = styled.form`
@@ -41,20 +41,4 @@ export const PasswordField = styled.div`
   flex-direction: column;
   gap: 10px;
   width: 100%;
-`;
-
-export const ShowPassword = styled.label`
-  display: flex;
-  align-items: center;
-  gap: 2px;
-
-  font-size: 12px;
-  line-height: 0;
-  padding-left: 10px;
-  cursor: pointer;
-  user-select: none;
-
-  & input {
-    appearance: unset;
-  }
 `;
