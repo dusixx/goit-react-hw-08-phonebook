@@ -37,6 +37,8 @@ export const ContactEditor = () => {
     editContactAsync,
   } = useContacts();
 
+  // очищаем на unmount,
+  // чтобы не висело для другого акка
   useEffect(() => {
     return () => {
       setEditedId(null);
@@ -44,6 +46,8 @@ export const ContactEditor = () => {
     };
   }, [setEditedId]);
 
+  // очищаем, если вручную очищены оба поля
+  // Иначе, не переключимся в режим Add
   useEffect(() => {
     if (!name && !number) {
       setEditedId(null);
@@ -59,6 +63,8 @@ export const ContactEditor = () => {
     setName(found.name);
     setNumber(found.number);
 
+    // скролим к форме редактирования
+    // Актуально, если список контактов объемный
     nameFieldRef.current?.focus();
     nameFieldRef.current?.scrollIntoView();
   }, [editedId, items, setEditedId]);
