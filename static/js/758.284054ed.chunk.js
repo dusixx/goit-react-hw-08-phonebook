@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[758],{6758:function(n,e,t){t.r(e),t.d(e,{Checkbox:function(){return r}});var a,p=t(168),r=t(3820).Z.label(a||(a=(0,p.Z)(["\n  display: flex;\n  align-items: center;\n  gap: 2px;\n\n  padding-left: 10px;\n  font-size: 12px;\n  line-height: 0;\n\n  cursor: pointer;\n  user-select: none;\n\n  & input {\n    appearance: unset;\n  }\n"])))}}]);
+//# sourceMappingURL=758.284054ed.chunk.js.map
