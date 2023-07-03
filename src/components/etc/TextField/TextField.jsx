@@ -29,7 +29,7 @@ export const TextField = forwardRef(
           {Icon && (
             <IconWrapper>
               {typeof Icon === 'function' ? (
-                <Icon size="100%" />
+                <Icon size="95%" />
               ) : (
                 // jsx element (ex. icon={<SomeIcon size={10} />})
                 Icon
@@ -39,7 +39,7 @@ export const TextField = forwardRef(
 
           {value && (
             <ClearBtn type="button" onClick={() => onChange(null)}>
-              <IconClose size="100%" />
+              <IconClose size="90%" />
             </ClearBtn>
           )}
         </InputWrapper>

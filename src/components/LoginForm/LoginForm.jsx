@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { fieldData } from 'data/fieldData';
-import { IconMail } from 'styles/icons';
+import { IconEmail } from 'styles/icons';
 import { useAuth } from 'redux/hooks';
 import { formatName } from 'utils';
 import { toast } from 'react-toastify';
@@ -91,7 +91,7 @@ const LoginForm = ({ signup = false }) => {
         placeholder="email"
         type="email"
         autoComplete="off"
-        icon={<IconMail size={18} />}
+        icon={IconEmail}
         value={email}
         onChange={e => setEmail(e?.target.value ?? '')}
         required
